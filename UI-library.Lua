@@ -14,6 +14,29 @@ local CoreGui = (gethui and gethui()) or game:GetService("CoreGui");
 
 local redzlib = {
 	Themes = {
+DarkerMidnight = {
+    -- Gradiente de Fundo Principal (Preto absoluto com uma transição suave para grafite no centro)
+    ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(6, 6, 8)),        -- Preto Meia-Noite Absoluto
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(14, 15, 18)),     -- Centro Grafite Sombrio
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(6, 6, 8))         -- Borda Direita Síncrona
+    }),
+    
+    -- Elementos Internos e Containers (Caixas de abas e seções integradas ao escuro)
+    ["Color Hub 2"] = Color3.fromRGB(10, 11, 13),                        -- Fundo de abas/seções fosco
+    
+    -- Bordas e Linhas de Divisão (Estilo furtivo, delimita os espaços com muita elegância)
+    ["Color Stroke"] = Color3.fromRGB(24, 26, 32),                       -- Cinza Escuro Metálico
+    
+    -- Cor de Destaque / Elementos Ativos (O contraste perfeito com a escuridão)
+    ["Color Theme"] = Color3.fromRGB(0, 180, 216),                       -- Azul Ciano Ártico (Neon Frio)
+    
+    -- Textos Principais (Contraste limpo e leitura imediata)
+    ["Color Text"] = Color3.fromRGB(240, 242, 245),                      -- Branco Gelo Puro
+    
+    -- Textos Secundários / Placeholders (Para descrições, subtextos e flags desativadas)
+    ["Color Dark Text"] = Color3.fromRGB(110, 115, 125)                  -- Cinza Névoa Fosco
+}
 		Darkerthyst = {
     ["Color Hub 1"] = ColorSequence.new({
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(8, 4, 12)),       -- Preto Roxo Profundo
@@ -59,7 +82,7 @@ local redzlib = {
 	Save = {
 		UISize = {479,241},
 		TabSize = 160,
-		Theme = "Darkerthyst"
+		Theme = "DarkerMidnight"
 	},
 	Settings = {},
 	Connection = {},
