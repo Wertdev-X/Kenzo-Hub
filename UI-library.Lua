@@ -36,7 +36,7 @@ DarkerMidnight = {
     
     -- Textos Secundários / Placeholders (Para descrições, subtextos e flags desativadas)
     ["Color Dark Text"] = Color3.fromRGB(110, 115, 125)                  -- Cinza Névoa Fosco
-}
+},
 		Darkerthyst = {
     ["Color Hub 1"] = ColorSequence.new({
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(8, 4, 12)),       -- Preto Roxo Profundo
