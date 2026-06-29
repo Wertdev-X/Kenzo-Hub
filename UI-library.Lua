@@ -12,69 +12,20 @@ local PlayerMouse = Player:GetMouse()
 
 local CoreGui = (gethui and gethui()) or game:GetService("CoreGui");
 
-local redzlib = {
-	Themes = {
-DarkerMidnight = {
-    -- Gradiente de Fundo Principal (Preto absoluto com uma transição suave para grafite no centro)
+local kenzolib = {
+	Themes = {		
+		GreenMidnight = {
     ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(6, 6, 8)),        -- Preto Meia-Noite Absoluto
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(14, 15, 18)),     -- Centro Grafite Sombrio
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(6, 6, 8))         -- Borda Direita Síncrona
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(10, 14, 12)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(5, 6, 5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(10, 14, 12))
     }),
-    
-    -- Elementos Internos e Containers (Caixas de abas e seções integradas ao escuro)
-    ["Color Hub 2"] = Color3.fromRGB(10, 11, 13),                        -- Fundo de abas/seções fosco
-    
-    -- Bordas e Linhas de Divisão (Estilo furtivo, delimita os espaços com muita elegância)
-    ["Color Stroke"] = Color3.fromRGB(24, 26, 32),                       -- Cinza Escuro Metálico
-    
-    -- Cor de Destaque / Elementos Ativos (O contraste perfeito com a escuridão)
-    ["Color Theme"] = Color3.fromRGB(0, 180, 216),                       -- Azul Ciano Ártico (Neon Frio)
-    
-    -- Textos Principais (Contraste limpo e leitura imediata)
-    ["Color Text"] = Color3.fromRGB(240, 242, 245),                      -- Branco Gelo Puro
-    
-    -- Textos Secundários / Placeholders (Para descrições, subtextos e flags desativadas)
-    ["Color Dark Text"] = Color3.fromRGB(110, 115, 125)                  -- Cinza Névoa Fosco
-},
-		Darkerthyst = {
-    ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(8, 4, 12)),       -- Preto Roxo Profundo
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(25, 18, 32)),     -- Centro Roxo Obscuro
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(8, 4, 12))        -- Borda Direita
-    }),
-    ["Color Hub 2"] = Color3.fromRGB(15, 11, 20),                        -- Fundo Interno
-    ["Color Stroke"] = Color3.fromRGB(48, 35, 60),                       -- Linha de Divisão
-    ["Color Theme"] = Color3.fromRGB(186, 85, 211),                      -- Roxo Orquídea Elétrico
-    ["Color Text"] = Color3.fromRGB(240, 235, 245),                      -- Texto Claro
-    ["Color Dark Text"] = Color3.fromRGB(150, 135, 160)                  -- Texto Escuro
-},
-
-		VenseNeon = {
-    ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(5, 5, 8)),        -- Preto Quase Invisível (Toque Azulado)
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(24, 24, 30)),     -- Cinza Escuro Premium (Centro)
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(5, 5, 8))         -- Borda Direita
-    }),
-    ["Color Hub 2"] = Color3.fromRGB(14, 14, 18),                        -- Fundo dos Elementos/Abas
-    ["Color Stroke"] = Color3.fromRGB(45, 45, 55),                       -- Linhas de Borda (Suaves)
-    ["Color Theme"] = Color3.fromRGB(0, 229, 255),                       -- Ciano Neon Brilhante (Destaque)
-    ["Color Text"] = Color3.fromRGB(245, 247, 250),                      -- Texto Principal (Branco Limpo)
-    ["Color Dark Text"] = Color3.fromRGB(140, 145, 160)                  -- Texto Secundário / Descrições
-},
-		
-		Purple = {
-			["Color Hub 1"] = ColorSequence.new({
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27.5, 25, 30)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB()),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(27.5, 25, 30))
-			}),
-			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
-			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
-			["Color Theme"] = Color3.fromRGB(150, 0, 255),
-			["Color Text"] = Color3.fromRGB(240, 240, 240),
-			["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
-		}
+           ["Color Hub 2"] = Color3.fromRGB(18, 22, 20),
+           ["Color Stroke"] = Color3.fromRGB(32, 42, 36),
+          ["Color Theme"] = Color3.fromRGB(0, 235, 120),
+          ["Color Text"] = Color3.fromRGB(245, 250, 247),
+         ["Color Dark Text"] = Color3.fromRGB(140, 155, 148)
+      }
 	},
 	Info = {
 		Version = "1.1.0"
@@ -82,7 +33,7 @@ DarkerMidnight = {
 	Save = {
 		UISize = {479,241},
 		TabSize = 160,
-		Theme = "DarkerMidnight"
+		Theme = "GreenMidnight"
 	},
 	Settings = {},
 	Connection = {},
@@ -918,12 +869,12 @@ DarkerMidnight = {
 local ViewportSize = workspace.CurrentCamera.ViewportSize
 local UIScale = ViewportSize.Y / 450
 
-local Settings = redzlib.Settings
-local Flags = redzlib.Flags
+local Settings = kenzolib.Settings
+local Flags = kenzolib.Flags
 
 local SetProps, SetChildren, InsertTheme, Create do
 	InsertTheme = function(Instance, Type)
-		table.insert(redzlib.Instances, {
+		table.insert(kenzolib.Instances, {
 			Instance = Instance,
 			Type = Type
 		})
@@ -972,9 +923,9 @@ local SetProps, SetChildren, InsertTheme, Create do
 			local decode = HttpService:JSONDecode(readfile(file))
 			
 			if type(decode) == "table" then
-				if rawget(decode, "UISize") then redzlib.Save["UISize"] = decode["UISize"] end
-				if rawget(decode, "TabSize") then redzlib.Save["TabSize"] = decode["TabSize"] end
-				if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then redzlib.Save["Theme"] = decode["Theme"] end
+				if rawget(decode, "UISize") then kenzolib.Save["UISize"] = decode["UISize"] end
+				if rawget(decode, "TabSize") then kenzolib.Save["TabSize"] = decode["TabSize"] end
+				if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then kenzolib.Save["Theme"] = decode["Theme"] end
 			end
 		end
 	end
@@ -1039,7 +990,7 @@ local Funcs = {} do
 	end
 end
 
-local Connections, Connection = {}, redzlib.Connection do
+local Connections, Connection = {}, kenzolib.Connection do
 	local function NewConnectionList(List)
 		if type(List) ~= "table" then return end
 		
@@ -1205,7 +1156,7 @@ local function MakeDrag(Instance)
 end
 
 local function VerifyTheme(Theme)
-	for name,_ in pairs(redzlib.Themes) do
+	for name,_ in pairs(kenzolib.Themes) do
 		if name == Theme then
 			return true
 		end
@@ -1219,20 +1170,20 @@ local function SaveJson(FileName, save)
 	end
 end
 
-local Theme = redzlib.Themes[redzlib.Save.Theme]
+local Theme = kenzolib.Themes[kenzolib.Save.Theme]
 
 local function AddEle(Name, Func)
-	redzlib.Elements[Name] = Func
+	kenzolib.Elements[Name] = Func
 end
 
 local function Make(Ele, Instance, props, ...)
-	local Element = redzlib.Elements[Ele](Instance, props, ...)
+	local Element = kenzolib.Elements[Ele](Instance, props, ...)
 	return Element
 end
 
 AddEle("Corner", function(parent, CornerRadius)
 	local New = SetProps(Create("UICorner", parent, {
-		CornerRadius = CornerRadius or UDim.new(0, 8)
+		CornerRadius = CornerRadius or UDim.new(0, 7)
 	}), props)
 	return New
 end)
@@ -1373,7 +1324,7 @@ local function GetColor(Instance)
 end
 
 -- /////////// --
-function redzlib:GetIcon(index)
+function kenzolib:GetIcon(index)
 	if type(index) ~= "string" or index:find("rbxassetid://") or #index == 0 then
 		return index
 	end
@@ -1396,15 +1347,15 @@ function redzlib:GetIcon(index)
 	return firstMatch or index
 end
 
-function redzlib:SetTheme(NewTheme)
+function kenzolib:SetTheme(NewTheme)
 	if not VerifyTheme(NewTheme) then return end
 	
-	redzlib.Save.Theme = NewTheme
-	SaveJson("Kenzo-Ui-Library-V1.json", redzlib.Save)
-	Theme = redzlib.Themes[NewTheme]
+	kenzolib.Save.Theme = NewTheme
+	SaveJson("Kenzo-Ui-Library-V1.json", kenzolib.Save)
+	Theme = kenzolib.Themes[NewTheme]
 	
 	Comnection:FireConnection("ThemeChanged", NewTheme)
-	table.foreach(redzlib.Instances, function(_,Val)
+	table.foreach(kenzolib.Instances, function(_,Val)
 		if Val.Type == "Gradient" then
 			Val.Instance.Color = Theme["Color Hub 1"]
 		elseif Val.Type == "Frame" then
@@ -1423,12 +1374,12 @@ function redzlib:SetTheme(NewTheme)
 	end)
 end
 
-function redzlib:SetScale(NewScale)
+function kenzolib:SetScale(NewScale)
 	NewScale = ViewportSize.Y / math.clamp(NewScale, 300, 2000)
 	UIScale, ScreenGui.Scale.Scale = NewScale, NewScale
 end
 
-function redzlib:MakeWindow(Configs)
+function kenzolib:MakeWindow(Configs)
 	local WTitle = Configs[1] or Configs.Name or Configs.Title or "redz Library V5"
 	local WMiniText = Configs[2] or Configs.SubTitle or "by : redz9999"
 	
@@ -1450,7 +1401,7 @@ function redzlib:MakeWindow(Configs)
 		end
 	end;LoadFile()
 	
-	local UISizeX, UISizeY = unpack(redzlib.Save.UISize)
+	local UISizeX, UISizeY = unpack(kenzolib.Save.UISize)
 	local MainFrame = InsertTheme(Create("ImageButton", ScreenGui, {
 		Size = UDim2.fromOffset(UISizeX, UISizeY),
 		Position = UDim2.new(0.5, -UISizeX/2, 0.5, -UISizeY/2),
@@ -1506,7 +1457,7 @@ function redzlib:MakeWindow(Configs)
 	}), "Text")
 	
 	local MainScroll = InsertTheme(Create("ScrollingFrame", Components, {
-		Size = UDim2.new(0, redzlib.Save.TabSize, 1, -TopBar.Size.Y.Offset),
+		Size = UDim2.new(0, kenzolib.Save.TabSize, 1, -TopBar.Size.Y.Offset),
 		ScrollBarImageColor3 = Theme["Color Theme"],
 		Position = UDim2.new(0, 0, 1, 0),
 		AnchorPoint = Vector2.new(0, 1),
@@ -1569,14 +1520,14 @@ function redzlib:MakeWindow(Configs)
 	
 	ConnectSave(ControlSize1, function()
 		if not Minimized then
-			redzlib.Save.UISize = {MainFrame.Size.X.Offset, MainFrame.Size.Y.Offset}
-			SaveJson("Kenzo-Ui-Library-V1.json", redzlib.Save)
+			kenzolib.Save.UISize = {MainFrame.Size.X.Offset, MainFrame.Size.Y.Offset}
+			SaveJson("Kenzo-Ui-Library-V1.json", kenzolib.Save)
 		end
 	end)
 	
 	ConnectSave(ControlSize2, function()
-		redzlib.Save.TabSize = MainScroll.Size.X.Offset
-		SaveJson("Kenzo-Ui-Library-V1.json", redzlib.Save)
+		kenzolib.Save.TabSize = MainScroll.Size.X.Offset
+		SaveJson("Kenzo-Ui-Library-V1.json", kenzolib.Save)
 	end)
 	
 	local ButtonsFolder = Create("Folder", TopBar, {
@@ -1784,9 +1735,9 @@ function redzlib:MakeWindow(Configs)
 	end
 	function Window:SelectTab(TabSelect)
 		if type(TabSelect) == "number" then
-			redzlib.Tabs[TabSelect].func:Enable()
+			kenzolib.Tabs[TabSelect].func:Enable()
 		else
-			for _,Tab in pairs(redzlib.Tabs) do
+			for _,Tab in pairs(kenzolib.Tabs) do
 				if Tab.Cont == TabSelect.Cont then
 					Tab.func:Enable()
 				end
@@ -1800,7 +1751,7 @@ function redzlib:MakeWindow(Configs)
 		local TName = Configs[1] or Configs.Title or "Tab!"
 		local TIcon = Configs[2] or Configs.Icon or ""
 		
-		TIcon = redzlib:GetIcon(TIcon)
+		TIcon = kenzolib:GetIcon(TIcon)
 		if not TIcon:find("rbxassetid://") or TIcon:gsub("rbxassetid://", ""):len() < 6 then
 			TIcon = false
 		end
@@ -1878,7 +1829,7 @@ function redzlib:MakeWindow(Configs)
 			end
 			Container.Parent = Containers
 			Container.Size = UDim2.new(1, 0, 1, 150)
-			table.foreach(redzlib.Tabs, function(_,Tab)
+			table.foreach(kenzolib.Tabs, function(_,Tab)
 				if Tab.Cont ~= Container then
 					Tab.func:Disable()
 				end
@@ -1893,7 +1844,7 @@ function redzlib:MakeWindow(Configs)
 		TabSelect.Activated:Connect(Tabs)
 		
 		FirstTab = true
-		table.insert(redzlib.Tabs, {TabInfo = {Name = TName, Icon = TIcon}, func = Tab, Cont = Container})
+		table.insert(kenzolib.Tabs, {TabInfo = {Name = TName, Icon = TIcon}, func = Tab, Cont = Container})
 		Tab.Cont = Container
 		
 		function Tab:Disable()
@@ -1935,7 +1886,7 @@ function redzlib:MakeWindow(Configs)
 			}), "Text")
 			
 			local Section = {}
-			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
+			table.insert(kenzolib.Options, {type = "Section", Name = SectionName, func = Section})
 			function Section:Visible(Bool)
 				if Bool == nil then SectionFrame.Visible = not SectionFrame.Visible return end
 				SectionFrame.Visible = Bool
@@ -2732,4 +2683,4 @@ function redzlib:MakeWindow(Configs)
 	return Window
 end
 
-return redzlib
+return kenzolib
