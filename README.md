@@ -9,8 +9,8 @@ Welcome to the official repository of **Kenzo Hub**, a powerful, highly optimize
 | Detail | Status |
 | :--- | :--- |
 | **Current Version** | `v1.0` |
-| **Status** | 🟢 Working / Undetected |
-| **Supported Executors** | Delta, and other major Luau executors |
+| **Status** | 🔴 In Creation / Not Released. |
+| **Supported Executors** | All Executors. |
 
 ---
 
@@ -20,7 +20,7 @@ Kenzo Hub features dedicated, game-specific automations and features for the fol
 
 *   **Brookhaven RP** 🏡
 *   **Murder Mystery 2 (MM2)** 🔪
-*   **Natural Disaster Survival (NDS)** 🌪️
+*   **Doors** 👁️
 *   **Forsaken** ⚔️
 
 ### 🌌 Universal Script Included!
@@ -41,6 +41,6 @@ In addition to the specific games listed above, Vense Hub comes equipped with a 
 2. Paste it into your executor (e.g., Delta).
 3. Execute and enjoy! 
 
-> 💡 *Tip: Join Discord Server! https://discord.gg/DymEtkKe8E*
+> 💡 *Tip: Join Discord Server! Discord: It doesn't work.*
 >
 🪐 *by WertDev* 🪐
