@@ -14,18 +14,18 @@ local CoreGui = (gethui and gethui()) or game:GetService("CoreGui");
 
 local kenzolib = {
 	Themes = {		
-		GreenMidnight = {
+		KenzoDarker = {
     ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(10, 14, 12)),
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(5, 6, 5)),
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(10, 14, 12))
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(6, 6, 8)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(2, 2, 3)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(6, 6, 8))
     }),
-           ["Color Hub 2"] = Color3.fromRGB(18, 22, 20),
-           ["Color Stroke"] = Color3.fromRGB(32, 42, 36),
-          ["Color Theme"] = Color3.fromRGB(0, 235, 120),
-          ["Color Text"] = Color3.fromRGB(245, 250, 247),
-         ["Color Dark Text"] = Color3.fromRGB(140, 155, 148)
-      }
+    ["Color Hub 2"] = Color3.fromRGB(12, 12, 14),
+    ["Color Stroke"] = Color3.fromRGB(22, 22, 26),
+    ["Color Theme"] = Color3.fromRGB(255, 255, 255),
+    ["Color Text"] = Color3.fromRGB(240, 240, 245),
+    ["Color Dark Text"] = Color3.fromRGB(110, 110, 115)
+}
 	},
 	Info = {
 		Version = "1.1.0"
@@ -33,7 +33,7 @@ local kenzolib = {
 	Save = {
 		UISize = {479,241},
 		TabSize = 160,
-		Theme = "GreenMidnight"
+		Theme = "KenzoDarker"
 	},
 	Settings = {},
 	Connection = {},
